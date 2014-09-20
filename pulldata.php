@@ -23,7 +23,7 @@ $response = $socrata->get('/resource/37nn-vnib.json?$where=datetime>\2013-12-01\
 */
 
 header('Content-type: application/json');
-$result = file_get_contents('http://data.bathhacked.org/resource/37nn-vnib.json?$where=datetime%3E%27'.$startDate.'%27%20AND%20datetime<%27'.$endDate.'%27');
+$result = file_get_contents('http://data.bathhacked.org/resource/37nn-vnib.json?$where=datetime%3E%27'.$startDate.'%27%20AND%20datetime<%27'.$endDate.'%27&$limit=10000&$offset=0');
 echo($result);
 
 ?>

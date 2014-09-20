@@ -36,24 +36,52 @@ function init() {
 
     function update(timeRow) {
         console.log(timeRow);
-        var feature = g.selectAll("circle")
-            .data(timeRow)
-            .enter()
-            .append("circle")
-            .attr('class', 'pollutioncircle nox')
+        var enterCircles = g.selectAll("circle")
+            .data(timeRow,function(d) { return d.id; })
+            .enter();
+
+        enterCircles.append("circle")
+            .attr('class', 'pollutioncircle')
+            .style("opacity", 0.4)
             .attr("r", 20)
-            .attr("fill", "red");
+            .attr("fill", "black");
 
         d3.selectAll('.pollutioncircle')
-            .transition().duration(500).ease("linear")
             .attr("transform",
             function(d) {
                 return "translate("+
                     map.latLngToLayerPoint(d.LatLng).x +","+
                     map.latLngToLayerPoint(d.LatLng).y +")";
             })
-            .attr("r", function(d){ return d.nox/4; })
-            .style("opacity", function(d){ return d.nox/240; });
+            .transition().duration(500).ease("linear")
+            .attr("r", function(d){
+                if(d.pollutant == 'nox'){
+                    return d.value / 4;
+                }
+                else if(d.pollutant == 'pm10'){
+                    return d.value;
+                }
+                else if(d.pollutant == 'o3'){
+                    return d.value*3;
+                }
+                else if(d.pollutant == 'co'){
+                    return d.value*30;
+                }
+            })
+            .style("fill", function(d){
+                if(d.pollutant == 'nox'){
+                    return 'black';
+                }
+                else if(d.pollutant == 'pm10'){
+                    return 'red'
+                }
+                else if(d.pollutant == 'o3'){
+                    return 'orange'
+                }
+                else if(d.pollutant == 'co'){
+                    return 'purple'
+                }
+            });
 
         $( "#date-range" ).val( currentSelectedDate );
         var fromDate = getToFromDates().from;
@@ -66,39 +94,12 @@ function init() {
     var currentSelectedDate = new Date(fromDate);
     var interval;
     var allData;
+    var maximums = {};
     onDateRangeUpdate();
 
     $('select').on('change', function(){
         console.log('changed!');
         onDateRangeUpdate();
-    });
-
-    $.getJSON('pulldata.php?startDate='+fromDate.toISOString()+'&endDate='+ toDate.toISOString(), function(response){
-        //Create reponse of form:
-        // {2001-01-01: {location: X, reading: 1.1},{location:Y, reading: 2.2},
-        //  2001-01-02: {location: X, reading: 1.2}, {location:Y, reading: 2.3},
-        // ...}
-        allData = {};
-        response.forEach( function(reading){
-            reading.datetime = new Date(reading.datetime);
-            var dateMap = allData[reading.datetime.toISOString()];
-            if( !dateMap ){
-                dateMap = [];
-                allData[reading.datetime.toISOString()] = dateMap;
-            }
-            dateMap.push( {
-                id: reading.sensor_location_slug,
-                LatLng: new L.LatLng(reading.sensor_location.latitude,
-                    reading.sensor_location.longitude),
-                nox: reading.nox,
-                co: reading.co
-            });
-        });
-
-        interval = setInterval(function(){
-            currentSelectedDate = new Date(currentSelectedDate.setHours( currentSelectedDate.getHours()+1 ));
-            update(allData[currentSelectedDate.toISOString()]);
-        }, 500 );
     });
 
     function onDateRangeUpdate(){
@@ -117,24 +118,62 @@ function init() {
             slide: function( event, ui ) {
                 var fromDate = getToFromDates().from;
                 var toDate = getToFromDates().to;
+
+                currentSelectedDate = new Date(fromDate.setDate( fromDate.getDate()+ui.value));
             }
         });
-    };
+
+
+        $.getJSON('pulldata.php?startDate='+fromDate.toISOString()+'&endDate='+ toDate.toISOString(), function(response){
+            //Create reponse of form:
+            // {2001-01-01: {location: X, reading: 1.1},{location:Y, reading: 2.2},
+            //  2001-01-02: {location: X, reading: 1.2}, {location:Y, reading: 2.3},
+            // ...}
+            allData = {};
+            response.forEach( function(reading){
+                reading.datetime = new Date(reading.datetime);
+                var dateMap = allData[reading.datetime.toISOString()];
+                if( !dateMap ){
+                    dateMap = [];
+                    allData[reading.datetime.toISOString()] = dateMap;
+                }
+                ['nox','co','pm10','o3'].forEach( function(pollutant){
+                    dateMap.push( {
+                        id: reading.sensor_location_slug+pollutant,
+                        LatLng: new L.LatLng(reading.sensor_location.latitude,
+                            reading.sensor_location.longitude),
+                        value: reading[pollutant],
+                        pollutant: pollutant
+                    });
+                });
+            });
+        });
+    }
+
+    function stop(){
+        clearInterval( interval );
+        interval = null;
+        $('#play-icon').addClass('stopped');
+        $('#play-icon').removeClass('playing');
+    }
+
+    function play(){
+        interval = setInterval(function(){
+            currentSelectedDate = new Date(currentSelectedDate.setHours( currentSelectedDate.getHours()+1 ));
+            update(allData[currentSelectedDate.toISOString()]);
+            $('#play-icon').removeClass('stopped');
+            $('#play-icon').addClass('playing');
+        }, 500 );
+    }
 
     $('#play-icon').on('click', function(){
         if( interval ){
-            clearInterval( interval );
-            interval = null;
-            $('#play-icon').addClass('stopped');
-            $('#play-icon').removeClass('playing');
+            stop();
         }
         else{
-            interval = setInterval(function(){
-                currentSelectedDate = new Date(currentSelectedDate.setHours( currentSelectedDate.getHours()+1 ));
-                update(allData[currentSelectedDate.toISOString()]);
-                $('#play-icon').removeClass('stopped');
-                $('#play-icon').addClass('playing');
-            }, 500 );
+            play();
         }
     });
+
+    play();
 }
