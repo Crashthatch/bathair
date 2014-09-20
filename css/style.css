@@ -4671,50 +4671,47 @@ h2 {
 #container header {
   padding: 20px;
   position: relative; }
-  #container header #date-picker option {
-    pointer: cursor; }
+  #container header #date-picker {
+    margin-top: 15px; }
+    #container header #date-picker option {
+      pointer: cursor; }
   #container header #airlapse-control {
-    padding-top: 15px; }
+    padding-top: 37px; }
     #container header #airlapse-control #slider {
-      margin: 8px auto 0;
+      margin: 15px auto 0;
       max-width: 98%; }
   #container header label {
     margin-right: 8px;
     color: #9BBCB1;
     cursor: pointer; }
-  #container header #play-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    bottom: 20px; }
-    #container header #play-button #logo {
-      display: block;
-      margin: 0 auto 15px; }
-    #container header #play-button a#play-icon {
-      height: 50%;
-      display: block;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
-      background: #9BBCB1;
-      font-family: "FontAwesome";
-      font-size: 30px;
-      line-height: 2.1;
-      text-align: center;
-      vertical-align: middle;
-      color: #fff; }
-      #container header #play-button a#play-icon.playing:before {
-        color: #fff;
-        content: "\f04d"; }
-      #container header #play-button a#play-icon.stopped:before {
-        color: #fff;
-        content: "\f04b"; }
-      #container header #play-button a#play-icon:hover {
-        background: #6DA59C;
-        color: #2E4859; }
-      #container header #play-button a#play-icon:active {
-        background: #4b7a73;
-        color: #2E4859; }
+  #container header #play-button #logo {
+    display: block;
+    margin: 0 auto 15px; }
+  #container header #play-button a#play-icon {
+    height: 50%;
+    display: block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #9BBCB1;
+    font-family: "FontAwesome";
+    font-size: 30px;
+    line-height: 2.1;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff; }
+    #container header #play-button a#play-icon.playing:before {
+      color: #fff;
+      content: "\f04d"; }
+    #container header #play-button a#play-icon.stopped:before {
+      color: #fff;
+      content: "\f04b"; }
+    #container header #play-button a#play-icon:hover {
+      background: #6DA59C;
+      color: #2E4859; }
+    #container header #play-button a#play-icon:active {
+      background: #4b7a73;
+      color: #2E4859; }
 #container #airlapse-key {
   position: absolute;
   z-index: 10;
@@ -4758,8 +4755,17 @@ select {
   select option {
     color: #000; }
 
-input[type="text"] {
-  width: 600px;
+input[type="text"]#date-range {
+  width: 200px;
   background: none;
   border: none;
   color: #fff; }
+
+input[type="text"]#time-range {
+  width: 200px;
+  background: none;
+  border: none;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 65px;
+  text-align: center; }

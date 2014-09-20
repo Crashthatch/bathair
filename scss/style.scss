@@ -120,6 +120,8 @@ h2 {
 
     // Date Picker
     #date-picker {
+      margin-top: 15px;
+
       option {
         pointer: cursor;
       }
@@ -133,10 +135,10 @@ h2 {
 
     // Slider
     #airlapse-control {
-      padding-top: 15px;
+      padding-top: 37px;
 
       #slider {
-        margin: 8px auto 0; 
+        margin: 15px auto 0; 
         max-width: 98%;
       }
     }
@@ -150,10 +152,6 @@ h2 {
     // Play Button
     #play-button {
       @extend .clearfix;
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      bottom: 20px;
 
       #logo {
         display: block;
@@ -269,9 +267,21 @@ select {
   }
 }
 
-input[type="text"] {
-  width: 600px;
+// Date Range Input
+input[type="text"]#date-range {
+  width: 200px;
   background: none;
   border: none;
   color: $white;
+}
+
+// Time Range Input
+input[type="text"]#time-range {
+  width: 200px;
+  background: none;
+  border: none;
+  margin-top: 20px;
+  color: $white;
+  font-size: 65px;
+  text-align: center;
 }
