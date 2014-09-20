@@ -106,17 +106,21 @@ a {
   }
 }
 
+h2 {
+  margin: 0 0 10px 0;
+}
+
 
 // Layout
 #container {
 
   // Header
   header {
+    padding: 20px;
     position: relative;
 
     // Date Picker
     #date-picker {
-      padding: 0 0 0 20px;
 
       form {
         width: 100%;
@@ -140,24 +144,29 @@ a {
     }
 
     #airlapse-control {
-      padding: 15px 0 0 20px;
+      padding-top: 15px;
+
+      #slider {
+        margin-top: 8px; 
+      }
     }
 
     // Play Button
     #play-button {
-      padding: 10px;
       @extend .clearfix;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      bottom: 20px;
 
+      // Play Icon & Text
       a#play-icon {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        bottom: 20px;
+        height: 100%;
         display: block;
         @include border-radius();
         background: $lightgreen;
-        padding: 5px;
         font-size: 35px;
+        line-height: 3.5;
         text-align: center;
         vertical-align: middle;
         color: $white;
@@ -177,7 +186,7 @@ a {
 
   #map {
     position: absolute;
-    top: 128px; 
+    top: 163px; 
     bottom: 0; 
     width: 100%;
     margin: 0px;

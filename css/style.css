@@ -5868,11 +5868,13 @@ a:hover {
   color: #6DA59C;
 }
 
-#container header {
-  position: relative;
+h2 {
+  margin: 0 0 10px 0;
 }
-#container header #date-picker {
-  padding: 0 0 0 20px;
+
+#container header {
+  padding: 20px;
+  position: relative;
 }
 #container header #date-picker form {
   width: 100%;
@@ -5886,23 +5888,26 @@ a:hover {
   cursor: pointer;
 }
 #container header #airlapse-control {
-  padding: 15px 0 0 20px;
+  padding-top: 15px;
+}
+#container header #airlapse-control #slider {
+  margin-top: 8px;
 }
 #container header #play-button {
-  padding: 10px;
-}
-#container header #play-button a#play-icon {
   position: absolute;
   top: 20px;
   right: 20px;
   bottom: 20px;
+}
+#container header #play-button a#play-icon {
+  height: 100%;
   display: block;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   background: #9BBCB1;
-  padding: 5px;
   font-size: 35px;
+  line-height: 3.5;
   text-align: center;
   vertical-align: middle;
   color: #fff;
@@ -5917,7 +5922,7 @@ a:hover {
 }
 #container #map {
   position: absolute;
-  top: 128px;
+  top: 163px;
   bottom: 0;
   width: 100%;
   margin: 0px;
