@@ -48,7 +48,7 @@ function init() {
         var enterCircles = circles.enter();
 
 
-        var transitionTime = 50;
+        var transitionTime = 100;
         if( speed == 1 ){
             transitionTime = 500;
         }
@@ -190,11 +190,10 @@ function init() {
             $('#play-icon').removeClass('stopped');
             $('#play-icon').removeClass('playing');
             $('#play-icon').addClass('playingfast');
-        }, 50 );
+        }, 100 );
     }
 
     $('#play-icon').on('click', function(){
-        console.log(speed);
         if( interval && speed == 1){
             playfast();
         }
