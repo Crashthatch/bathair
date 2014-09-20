@@ -175,13 +175,13 @@ h2 {
         color: $white;
 
         &:hover {
-          background: $white;
-          color: $lightgreen;
+          background: $green;
+          color: $blue;
         }
 
         &:active {
-          background: darken($white, 10%);
-          color: darken($lightgreen, 10%);
+          background: darken($green, 15%);
+          color: $blue;
         }
       }
     }
@@ -200,8 +200,12 @@ h2 {
 
 
 // Form Inputs
-input[type="select"] {
+select {
   cursor: pointer;
+
+  option {
+    color: $black;
+  }
 }
 
 input[type="text"] {

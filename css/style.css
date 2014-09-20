@@ -4704,11 +4704,11 @@ h2 {
       vertical-align: middle;
       color: #fff; }
       #container header #play-button a#play-icon:hover {
-        background: #fff;
-        color: #9BBCB1; }
+        background: #6DA59C;
+        color: #2E4859; }
       #container header #play-button a#play-icon:active {
-        background: #e6e6e6;
-        color: #7ca899; }
+        background: #4b7a73;
+        color: #2E4859; }
 #container #map {
   position: absolute;
   top: 163px;
@@ -4717,8 +4717,10 @@ h2 {
   margin: 0px;
   padding: 0px; }
 
-input[type="select"] {
+select {
   cursor: pointer; }
+  select option {
+    color: #000; }
 
 input[type="text"] {
   background: none;
