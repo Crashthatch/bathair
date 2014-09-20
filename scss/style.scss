@@ -57,13 +57,13 @@
 
 // Variables //
 
-$pink: 			#C85868;
-$purple: 		#90556B;
-$blue: 			#2E4859;
-$green:			#6DA59C;
+$pink: 			  #C85868;
+$purple: 		  #90556B;
+$blue: 			  #2E4859;
+$green:			  #6DA59C;
 $lightgreen: 	#9BBCB1;
-$white: 		#fff;
-$black: 		#000;
+$white: 		  #fff;
+$black: 		  #000;
 
 // Clearfix
 .clearfix:before,
@@ -204,3 +204,16 @@ input[type="text"] {
   border: none;
   color: $white;
 } 
+
+
+// Pollution Styles
+.pollutioncircle {
+
+  // NOx
+  &.nox {
+    background: -webkit-radial-gradient(red, blue); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(red, blue); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(red, blue); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(red, blue); /* Standard syntax */
+  }
+}
