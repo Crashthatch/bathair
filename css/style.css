@@ -4630,11 +4630,6 @@ button.ui-button::-moz-focus-inner {
 .last {
   float: right; }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
 .clearfix:before, #container header #play-button:before,
 .clearfix:after,
 #container header #play-button:after {
@@ -4658,6 +4653,11 @@ body {
   color: #fff;
   font-size: 17px;
   line-height: 1.2; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 a {
   color: #fff;

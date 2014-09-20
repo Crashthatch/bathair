@@ -25,12 +25,6 @@
 	margin-left: 2.762430939%;
 }
 
-@mixin border-radius($radius: 4px) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
-}
-
 @mixin first {
   float: left;
   margin-left: 0;
@@ -47,10 +41,10 @@
   float: right;
 }
 
-* { 
-  -webkit-box-sizing: border-box; 
-  -moz-box-sizing:    border-box; 
-  box-sizing:         border-box; 
+@mixin border-radius($radius: 4px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
 }
 
 
@@ -88,6 +82,7 @@ html, body {
   margin: 0px;
   padding: 0px;
 }
+
 body {
 	background: $blue;
 	color: $white;
@@ -95,7 +90,12 @@ body {
 	line-height: 1.2;
 }
 
-// Links
+* { 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing:    border-box; 
+  box-sizing:         border-box; 
+}
+
 a {
   color: $white;
   text-decoration: none;
