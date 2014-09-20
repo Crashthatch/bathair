@@ -166,15 +166,14 @@ h2 {
         @include border-radius();
         background: $lightgreen;
         font-family: $icons;
-        line-height: 1.85;
+        font-size: 30px;
+        line-height: 2.1;
         text-align: center;
         vertical-align: middle;
         color: $white;
 
         &.playing {
           &:before {
-            font-size: 30px;
-            line-height: 2.1;
             color: $white;
             content: "\f04d";
           }
@@ -182,10 +181,8 @@ h2 {
 
         &.stopped {
           &:before {
-            font-size: 35px;
-            
             color: $white;
-            content: "\f01d";
+            content: "\f04b";
           }
         }
 
