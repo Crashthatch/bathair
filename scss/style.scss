@@ -205,6 +205,7 @@ h2 {
     }
   }
 
+  // AirLapse Key
   #airlapse-key {
     position: absolute;
     z-index: 10;
@@ -252,6 +253,25 @@ h2 {
     }
   }
 
+  // AirLapse Twitter
+  #airlapse-twitter {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    right: 10px;
+    @include border-radius;
+    padding: 0 20px;
+    font-size: 30px;
+    
+    a {
+      color: $green;
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+
   // Leaflet Map
   #map {
     position: absolute;
@@ -287,7 +307,7 @@ input[type="text"]#time-range {
   width: 200px;
   background: none;
   border: none;
-  margin-top: 20px;
+  margin-top: 28px;
   color: $white;
   font-size: 65px;
   text-align: center;
