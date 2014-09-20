@@ -1,3 +1,4 @@
+// Map
 function init() {
   var map = L.map('map').setView([51.38,-2.36], 13);
   mapLink =
@@ -60,4 +61,18 @@ function init() {
   }
 
   addCircles(circles);
+
+
+
+  // jQuery UI
+  $( "#slider" ).slider({
+    value:100,
+    min: 0,
+    max: 500,
+    step: 50,
+    slide: function( event, ui ) {
+      $( "#date-range" ).val( ui.value );
+    }
+  });
+  $( "#date-range" ).val( $( "#slider" ).slider( "value" ) );
 }

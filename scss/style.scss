@@ -2,6 +2,7 @@
 
 @import "normalize.scss";
 @import "fontawesome/font-awesome.scss";
+@import "jquery-ui/jquery-ui.scss";
 
 
 // Grid //
@@ -108,68 +109,89 @@ a {
 
 // Layout
 #container {
-	width: 100%;
 
-	// Date Picker
-	#date-picker {
-		padding: 20px;
+  // Header
+  header {
+    position: relative;
 
-		form {
-			width: 100%;
+    // Date Picker
+    #date-picker {
+      padding: 0 0 0 20px;
 
-      option {
-        pointer: cursor;
+      form {
+        width: 100%;
+
+        option {
+          pointer: cursor;
+        }
+
+        label {
+          margin-right: 8px;
+          color: $lightgreen;
+          cursor: pointer;
+        }
+
+        // Date From
+        #date-from {}
+
+        // Date To
+        #date-to {}
       }
+    }
 
-			label {
-				margin-right: 5px;
-			}
+    #airlapse-control {
+      padding: 15px 0 0 20px;
+    }
 
-			// Date From
-			#date-from {
-				@include first;
-			}
-
-			// Date To
-			#date-to {
-				@include last;
-			}
-		}
-	}
-
-  // Play Button
-  #play-button {
-    text-align: center;
-
-    a#play-icon {
-
-      display: block;
-      @include border-radius();
-      background: $lightgreen;
-      margin: 10px 10px 10px 10px;
+    // Play Button
+    #play-button {
       padding: 10px;
-      font-size: 40px;
-      color: $white;
+      @extend .clearfix;
 
-      &:hover {
-        background: $white;
-        color: $lightgreen;
-      }
+      a#play-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        bottom: 20px;
+        display: block;
+        @include border-radius();
+        background: $lightgreen;
+        padding: 5px;
+        font-size: 35px;
+        text-align: center;
+        vertical-align: middle;
+        color: $white;
 
-      &:active {
-        background: darken($white, 10%);
-        color: darken($lightgreen, 10%);
+        &:hover {
+          background: $white;
+          color: $lightgreen;
+        }
+
+        &:active {
+          background: darken($white, 10%);
+          color: darken($lightgreen, 10%);
+        }
       }
     }
   }
 
   #map {
     position: absolute;
-    top: 88px; 
+    top: 128px; 
     bottom: 0; 
     width: 100%;
-    min-height: 100%;
     margin: 0px;
     padding: 0px;
   }
 }
+
+input[type="select"] {
+  cursor: pointer;
+}
+
+// Forms
+input[type="text"] {
+  background: none;
+  border: none;
+  color: $white;
+} 
