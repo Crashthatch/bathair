@@ -4697,19 +4697,17 @@ h2 {
       border-radius: 4px;
       background: #9BBCB1;
       font-family: "FontAwesome";
-      line-height: 1.85;
+      font-size: 30px;
+      line-height: 2.1;
       text-align: center;
       vertical-align: middle;
       color: #fff; }
       #container header #play-button a#play-icon.playing:before {
-        font-size: 30px;
-        line-height: 2.1;
         color: #fff;
         content: "\f04d"; }
       #container header #play-button a#play-icon.stopped:before {
-        font-size: 35px;
         color: #fff;
-        content: "\f01d"; }
+        content: "\f04b"; }
       #container header #play-button a#play-icon:hover {
         background: #6DA59C;
         color: #2E4859; }
