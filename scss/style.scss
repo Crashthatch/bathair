@@ -118,26 +118,15 @@ h2 {
 
     // Date Picker
     #date-picker {
-
-      form {
-        width: 100%;
-
-        option {
-          pointer: cursor;
-        }
-
-        label {
-          margin-right: 8px;
-          color: $lightgreen;
-          cursor: pointer;
-        }
-
-        // Date From
-        #date-from {}
-
-        // Date To
-        #date-to {}
+      option {
+        pointer: cursor;
       }
+
+      // Date From
+      #date-from {}
+
+      // Date To
+      #date-to {}
     }
 
     // Slider
@@ -147,6 +136,12 @@ h2 {
       #slider {
         margin-top: 8px; 
       }
+    }
+
+    label {
+      margin-right: 8px;
+      color: $lightgreen;
+      cursor: pointer;
     }
 
     // Play Button
