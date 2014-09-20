@@ -38,7 +38,7 @@ function init() {
     .data(collection)
     .enter()
     .append("circle")
-    .attr('class', 'pollutioncircle')
+    .attr('class', 'pollutioncircle nox')
     .attr("r", 20);
 
     map.on("viewreset", update);
