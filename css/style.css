@@ -4718,7 +4718,8 @@ h2 {
   padding: 0px; }
 
 select {
-  cursor: pointer; }
+  cursor: pointer;
+  color: #000; }
   select option {
     color: #000; }
 
