@@ -136,7 +136,8 @@ h2 {
       padding-top: 15px;
 
       #slider {
-        margin-top: 8px; 
+        margin: 8px auto 0; 
+        max-width: 98%;
       }
     }
 
@@ -151,7 +152,7 @@ h2 {
       @extend .clearfix;
       position: absolute;
       top: 20px;
-      right: 20px;
+      left: 20px;
       bottom: 20px;
 
       #logo {

@@ -4676,7 +4676,8 @@ h2 {
   #container header #airlapse-control {
     padding-top: 15px; }
     #container header #airlapse-control #slider {
-      margin-top: 8px; }
+      margin: 8px auto 0;
+      max-width: 98%; }
   #container header label {
     margin-right: 8px;
     color: #9BBCB1;
@@ -4684,7 +4685,7 @@ h2 {
   #container header #play-button {
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     bottom: 20px; }
     #container header #play-button #logo {
       display: block;

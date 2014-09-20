@@ -28,13 +28,23 @@
       <!-- Date Pickers, Play Button -->
       <header class="clearfix">
 
+        <!-- Play & Playback Speed -->
+        <div id="play-button" class="twocol first">
+
+          <!-- Logo -->
+          <img src="images/logo.png" id="logo" class="playing">
+
+          <!-- Play Icon -->
+          <a href="#" id="play-icon" class="playing"></a>
+        </div>
+
         <!-- Date Controls -->
-        <div class="tencol first clearfix">
+        <div class="tencol last clearfix">
           <div id="date-picker" class="clearfix">
-            <h2>Choose your date range:</h2>
+            <!-- <h2>Choose your date range:</h2> -->
 
             <!-- Date From -->
-            <div id="date-from" class="fivecol first">
+            <div id="date-from" class="fourcol first">
               <label for="data-from-day">Date from: </label>
               <select id="data-from-day">
                 <option disabled>- Day -</option>
@@ -107,7 +117,7 @@
             </div>
 
             <!-- Date To -->
-            <div id="date-to" class="fivecol">
+            <div id="date-to" class="last">
               <label for="data-to-day">Date to: </label>
               <select id="data-to-day">
                 <option disabled>- Day -</option>
@@ -190,16 +200,6 @@
             <!-- Slider -->
             <div id="slider"></div>
           </div>
-        </div>
-
-        <!-- Play & Playback Speed -->
-        <div id="play-button" class="twocol last">
-
-          <!-- Logo -->
-          <img src="images/logo.png" id="logo" class="playing">
-
-          <!-- Play Icon -->
-          <a href="#" id="play-icon" class="playing"></a>
         </div>
       </header>
 
