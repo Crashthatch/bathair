@@ -6,7 +6,8 @@ function init() {
     L.tileLayer(
         'http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             //attribution: '&copy; ' + mapLink + ' Contributors',
-            //maxZoom: 18,
+            maxZoom: 15,
+            minZoom: 15
         }).addTo(map);
 
     map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text.
