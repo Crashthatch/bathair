@@ -1,0 +1,12 @@
+{
+  "require": {
+    "bathhacked/rich-socrata-wrapper": "dev-master@dev"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:BathHacked/rich-socrata-wrapper.git"
+    }
+  ],
+  "minimum-stability": "dev"
+}

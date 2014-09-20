@@ -1,2 +1,5 @@
 
 *.scssc
+vendor/*
+.vagrant/*
+.idea/*
