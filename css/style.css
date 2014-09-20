@@ -4669,7 +4669,7 @@ h2 {
   margin: 0 0 10px 0; }
 
 #container header {
-  padding: 20px;
+  padding: 15px;
   position: relative; }
   #container header #date-picker {
     margin-top: 15px; }
@@ -4701,6 +4701,9 @@ h2 {
     vertical-align: middle;
     color: #fff; }
     #container header #play-button a#play-icon.playing:before {
+      color: #fff;
+      content: "\f04e"; }
+    #container header #play-button a#play-icon.playingfast:before {
       color: #fff;
       content: "\f04d"; }
     #container header #play-button a#play-icon.stopped:before {
