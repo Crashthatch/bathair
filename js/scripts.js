@@ -18,29 +18,27 @@ function init() {
   var svg = d3.select("#map").select("svg"),
   g = svg.append("g");
 
-  var circles = {"objects":[
+  /*var circles = {"objects":[
     {"circle":{"coordinates":[51.38,-2.36]}}
-    /*,{"circle":{"coordinates":[51.39,3.35]}},
+    ,{"circle":{"coordinates":[51.39,3.35]}},
     {"circle":{"coordinates":[51.29,2.47]}},
     {"circle":{"coordinates":[51.38,2.39]}},
-    {"circle":{"coordinates":[51.38,2.30]}}*/
-  ]};
+    {"circle":{"coordinates":[51.38,2.30]}}
+  ]};*/
 
   function addCircles(collection) {
     /* Add a LatLng object to each item in the dataset */
-    collection.objects.forEach(function (d) {
-        d.LatLng = new L.LatLng(d.circle.coordinates[0],
-        d.circle.coordinates[1])
-    })
+    console.log(collection[0]);
+    collection.forEach(function (d) {
+        d.LatLng = new L.LatLng(d.sensor_location.latitude,
+        d.sensor_location.longitude)
+    });
 
     var feature = g.selectAll("circle")
-    .data(collection.objects)
+    .data(collection)
     .enter()
     .append("circle")
     .attr('class', 'pollutioncircle')
-    .style("stroke", "black")
-    .style("opacity", .6)
-    .style("fill", "red")
     .attr("r", 20);
 
     map.on("viewreset", update);
@@ -48,8 +46,6 @@ function init() {
   }
 
   function update() {
-    console.log('updating!');
-
     d3.selectAll('.pollutioncircle')
     .attr("transform",
     function(d) {
@@ -57,10 +53,20 @@ function init() {
         map.latLngToLayerPoint(d.LatLng).x +","+
         map.latLngToLayerPoint(d.LatLng).y +")";
     })
-    .style("opacity", function(d){ return d.opacity; });
+    .style("opacity", function(d){ return d.nox/300; });
   }
 
-  addCircles(circles);
+  $.getJSON('pulldata.php?startDate=2013-01-01&endDate=2013-02-02', function(response){
+    //Create reponse of form: [{2001-01-01: {location: X, reading: 1.1},{location:Y, reading: 2.2}},{2001-01-01: {location: X, reading: 1.2}, {location:Y, reading: 2.3}}]
+    var ret = {};
+    response.forEach( function(reading){
+      ret
+    });
+
+    addCircles(response);
+  });
+
+
 
 
 
