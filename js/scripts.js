@@ -69,7 +69,7 @@ function init() {
             .transition().duration(transitionTime).ease("linear")
             .attr("r", function(d){
                 if(d.value && !isNaN(d.value) ){
-                    return 200*(d.value / maximums[d.pollutant]);
+                    return 100*(d.value / legalMaximums[d.pollutant]);
                 }
                 else{
                     return 0;
@@ -103,6 +103,7 @@ function init() {
     var interval;
     var allData;
     var maximums = {};
+    var legalMaximums = {"o3": 100, "nox": 240, "co": 5, "pm10": 50};
     var speed = 1;
     onDateRangeUpdate();
 
