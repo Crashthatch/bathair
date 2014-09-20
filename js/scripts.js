@@ -35,7 +35,6 @@ function init() {
     }
 
     function update(timeRow) {
-        console.log(timeRow);
         var enterCircles = g.selectAll("circle")
             .data(timeRow,function(d) { return d.id; })
             .enter();
@@ -55,8 +54,14 @@ function init() {
             })
             .transition().duration(500).ease("linear")
             .attr("r", function(d){
-                if(d.pollutant == 'nox'){
-                    return d.value / 4;
+                if(d.value ){
+                    return 200*(d.value / maximums[d.pollutant]);
+                }
+                else{
+                    return 0;
+                }
+                /*if(d.pollutant == 'nox'){
+                    return d.value / maximums[d.pollutant];
                 }
                 else if(d.pollutant == 'pm10'){
                     return d.value;
@@ -66,7 +71,7 @@ function init() {
                 }
                 else if(d.pollutant == 'co'){
                     return d.value*30;
-                }
+                }*/
             })
             .style("fill", function(d){
                 if(d.pollutant == 'nox'){
@@ -98,7 +103,6 @@ function init() {
     onDateRangeUpdate();
 
     $('select').on('change', function(){
-        console.log('changed!');
         onDateRangeUpdate();
     });
 
@@ -142,11 +146,15 @@ function init() {
                         id: reading.sensor_location_slug+pollutant,
                         LatLng: new L.LatLng(reading.sensor_location.latitude,
                             reading.sensor_location.longitude),
-                        value: reading[pollutant],
+                        value: parseFloat(reading[pollutant]),
                         pollutant: pollutant
                     });
+                    if( !maximums[pollutant] || parseFloat(reading[pollutant]) > maximums[pollutant]){
+                        maximums[pollutant] = parseFloat(reading[pollutant]);
+                    }
                 });
             });
+            console.log(maximums);
         });
     }
 
