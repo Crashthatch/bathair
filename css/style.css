@@ -2648,6 +2648,12 @@ th {
   float: right;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .clearfix:before,
 .clearfix:after {
   content: "";
@@ -2669,6 +2675,14 @@ body {
   line-height: 1.2;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  color: #6DA59C;
+}
+
 #container {
   width: 100%;
 }
@@ -2677,6 +2691,9 @@ body {
 }
 #container #date-picker form {
   width: 100%;
+}
+#container #date-picker form option {
+  pointer: cursor;
 }
 #container #date-picker form label {
   margin-right: 5px;
@@ -2687,4 +2704,26 @@ body {
 }
 #container #date-picker form #date-to {
   float: right;
+}
+#container #play-button {
+  text-align: center;
+}
+#container #play-button a#play-icon {
+  display: block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: #9BBCB1;
+  margin: 10px 10px 10px 10px;
+  padding: 10px;
+  font-size: 40px;
+  color: #fff;
+}
+#container #play-button a#play-icon:hover {
+  background: #fff;
+  color: #9BBCB1;
+}
+#container #play-button a#play-icon:active {
+  background: #e6e6e6;
+  color: #7ca899;
 }

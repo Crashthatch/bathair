@@ -25,6 +25,12 @@
 	margin-left: 2.762430939%;
 }
 
+@mixin border-radius($radius: 4px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
 @mixin first {
   float: left;
   margin-left: 0;
@@ -41,6 +47,12 @@
   float: right;
 }
 
+* { 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing:    border-box; 
+  box-sizing:         border-box; 
+}
+
 
 // Variables //
 
@@ -48,7 +60,7 @@ $pink: 			#C85868;
 $purple: 		#90556B;
 $blue: 			#2E4859;
 $green:			#6DA59C;
-$light-green: 	#9BBCB1;
+$lightgreen: 	#9BBCB1;
 $white: 		#fff;
 $black: 		#000;
 
@@ -68,6 +80,7 @@ $black: 		#000;
 
 // Styles //
 
+// General Styles
 body {
 	background: $blue;
 	color: $white;
@@ -75,6 +88,18 @@ body {
 	line-height: 1.2;
 }
 
+// Links
+a {
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    color: $green;
+  }
+}
+
+
+// Layout
 #container {
 	width: 100%;
 
@@ -84,6 +109,10 @@ body {
 
 		form {
 			width: 100%;
+
+      option {
+        pointer: cursor;
+      }
 
 			label {
 				margin-right: 5px;
@@ -100,4 +129,30 @@ body {
 			}
 		}
 	}
+
+  // Play Button
+  #play-button {
+    text-align: center;
+
+    a#play-icon {
+
+      display: block;
+      @include border-radius();
+      background: $lightgreen;
+      margin: 10px 10px 10px 10px;
+      padding: 10px;
+      font-size: 40px;
+      color: $white;
+
+      &:hover {
+        background: $white;
+        color: $lightgreen;
+      }
+
+      &:active {
+        background: darken($white, 10%);
+        color: darken($lightgreen, 10%);
+      }
+    }
+  }
 }
