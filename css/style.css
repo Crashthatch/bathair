@@ -4671,18 +4671,16 @@ h2 {
 #container header {
   padding: 20px;
   position: relative; }
-  #container header #date-picker form {
-    width: 100%; }
-    #container header #date-picker form option {
-      pointer: cursor; }
-    #container header #date-picker form label {
-      margin-right: 8px;
-      color: #9BBCB1;
-      cursor: pointer; }
+  #container header #date-picker option {
+    pointer: cursor; }
   #container header #airlapse-control {
     padding-top: 15px; }
     #container header #airlapse-control #slider {
       margin-top: 8px; }
+  #container header label {
+    margin-right: 8px;
+    color: #9BBCB1;
+    cursor: pointer; }
   #container header #play-button {
     position: absolute;
     top: 20px;
