@@ -4715,6 +4715,35 @@ h2 {
       #container header #play-button a#play-icon:active {
         background: #4b7a73;
         color: #2E4859; }
+#container #airlapse-key {
+  position: absolute;
+  z-index: 10;
+  bottom: 10px;
+  left: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 0 20px;
+  color: #000; }
+  #container #airlapse-key p span {
+    display: block;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 8px 0 0;
+    opacity: 0.3; }
+  #container #airlapse-key p.nox span {
+    background: black; }
+  #container #airlapse-key p.pm10 span {
+    background: red; }
+  #container #airlapse-key p.o3 span {
+    background: orange; }
+  #container #airlapse-key p.co span {
+    background: blue; }
 #container #map {
   position: absolute;
   top: 163px;

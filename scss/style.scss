@@ -164,7 +164,7 @@ h2 {
       a#play-icon {
         height: 50%;
         display: block;
-        @include border-radius();
+        @include border-radius;
         background: $lightgreen;
         font-family: $icons;
         font-size: 30px;
@@ -196,6 +196,53 @@ h2 {
           background: darken($green, 15%);
           color: $blue;
         }
+      }
+    }
+  }
+
+  #airlapse-key {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    left: 10px;
+    @include border-radius;
+    background: $white;
+    padding: 0 20px;
+    color: $black;
+
+    p {
+      span {
+        display: block;
+        @include border-radius(10px);
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin: 0 8px 0 0;
+        opacity: 0.3;
+      }
+    }
+
+    p.nox {
+      span {
+        background: black;
+      }
+    }
+
+    p.pm10 {
+      span {
+        background: red;
+      }
+    }
+
+    p.o3 {
+      span {
+        background: orange;
+      }
+    }
+
+    p.co {
+      span {
+        background: blue;
       }
     }
   }

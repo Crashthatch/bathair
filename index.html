@@ -196,12 +196,14 @@
             <!-- Slider Label -->
             <label for="date-range">Date shown on map:</label>
             <input type="text" id="date-range" readonly>
-            <input type="text" id="time-range" readonly>
 
             <!-- Slider -->
             <div id="slider"></div>
           </div>
         </div>
+
+        <!-- Timecode -->
+        <input type="text" id="time-range" class="twocol last" readonly>
       </header>
 
       <!-- <svg>
@@ -213,6 +215,21 @@
         </defs>
         <ellipse cx="200" cy="50" rx="50" ry="50" fill="url(#low)" />
       </svg> -->
+
+      <div id="airlapse-key">
+        <p class="nox">
+            <span></span> NOx
+        </p>
+        <p class="pm10">
+            <span></span> PM10
+        </p>
+        <p class="o3">
+            <span></span> O3
+        </p>
+        <p class="co">
+            <span></span> CO
+        </p>
+      </div>
 
       <!-- Leaflet Map -->
       <div id="map"></div>
