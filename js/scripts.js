@@ -20,9 +20,15 @@ function init() {
         g = svg.append("g");
     map.on("viewreset", update);
 
-    function addCircles(firstPoint) {
-        /* Add a LatLng object to each item in the dataset */
-        //console.log(collection[0]);
+    var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    function nth(d) {
+        if(d>3 && d<21) return 'th'; // thanks kennebec
+        switch (d % 10) {
+            case 1:  return "st";
+            case 2:  return "nd";
+            case 3:  return "rd";
+            default: return "th";
+        }
     }
 
     function getToFromDates(){
@@ -64,18 +70,6 @@ function init() {
                 else{
                     return 0;
                 }
-                /*if(d.pollutant == 'nox'){
-                    return d.value / maximums[d.pollutant];
-                }
-                else if(d.pollutant == 'pm10'){
-                    return d.value;
-                }
-                else if(d.pollutant == 'o3'){
-                    return d.value*3;
-                }
-                else if(d.pollutant == 'co'){
-                    return d.value*30;
-                }*/
             })
             .style("fill", function(d){
                 if(d.pollutant == 'nox'){
@@ -92,7 +86,8 @@ function init() {
                 }
             });
 
-        $( "#date-range" ).val( currentSelectedDate );
+        $( "#date-range" ).val( currentSelectedDate.getDate()+nth(currentSelectedDate.getDate())+" "+monthNames[currentSelectedDate.getMonth()]+" "+currentSelectedDate.getFullYear() );
+        $( "#time-range" ).val( (currentSelectedDate.getHours()<10?'0':'') + currentSelectedDate.getHours()+":"+(currentSelectedDate.getMinutes()<10?'0':'') + currentSelectedDate.getMinutes() );
         var fromDate = getToFromDates().from;
         var toDate = getToFromDates().to;
         $( "#slider" ).slider("value", Math.floor((currentSelectedDate-fromDate)/(1000*60*60*24)) );
