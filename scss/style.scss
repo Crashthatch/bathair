@@ -1,1 +1,103 @@
+// Imports //
+
 @import "normalize.scss";
+@import "fontawesome/font-awesome.scss";
+
+
+// Grid //
+
+.onecol    { width: 5.801104972%;  }
+.twocol    { width: 14.364640883%; }
+.threecol  { width: 22.928176794%; }
+.fourcol   { width: 31.491712705%; }
+.fivecol   { width: 40.055248616%; }
+.sixcol    { width: 48.618784527%; }
+.sevencol  { width: 57.182320438000005%; }
+.eightcol  { width: 65.74585634900001%; }
+.ninecol   { width: 74.30939226%; }
+.tencol    { width: 82.87292817100001%; }
+.elevencol { width: 91.436464082%; }
+.twelvecol { width: 99.999999993%; }
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+	position: relative;
+	float: left;
+	margin-left: 2.762430939%;
+}
+
+@mixin first {
+  float: left;
+  margin-left: 0;
+}
+.first {
+  float: left;
+  margin-left: 0;
+}
+
+@mixin last {
+  float: right;
+}
+.last {
+  float: right;
+}
+
+
+// Variables //
+
+$pink: 			#C85868;
+$purple: 		#90556B;
+$blue: 			#2E4859;
+$green:			#6DA59C;
+$light-green: 	#9BBCB1;
+$white: 		#fff;
+$black: 		#000;
+
+// Clearfix
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.clearfix {
+    *zoom:1;
+}
+
+
+// Styles //
+
+body {
+	background: $blue;
+	color: $white;
+	font-size: 17px;
+	line-height: 1.2;
+}
+
+#container {
+	width: 100%;
+
+	// Date Picker
+	#date-picker {
+		padding: 20px;
+
+		form {
+			width: 100%;
+
+			label {
+				margin-right: 5px;
+			}
+
+			// Date From
+			#date-from {
+				@include first;
+			}
+
+			// Date To
+			#date-to {
+				@include last;
+			}
+		}
+	}
+}
