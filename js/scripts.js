@@ -17,6 +17,7 @@ function init() {
     /* We simply pick up the SVG from the map object */
     var svg = d3.select("#map").select("svg"),
         g = svg.append("g");
+    map.on("viewreset", update);
 
     function addCircles(firstPoint) {
         /* Add a LatLng object to each item in the dataset */
@@ -93,9 +94,6 @@ function init() {
             });
         });
 
-        console.log(allData);
-        update(allData[currentSelectedDate.toISOString()]);
-        map.on("viewreset", update);
         interval = setInterval(function(){
             currentSelectedDate = new Date(currentSelectedDate.setHours( currentSelectedDate.getHours()+1 ));
             update(allData[currentSelectedDate.toISOString()]);
