@@ -25,12 +25,6 @@
 	margin-left: 2.762430939%;
 }
 
-@mixin border-radius($radius: 4px) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
-}
-
 @mixin first {
   float: left;
   margin-left: 0;
@@ -47,10 +41,10 @@
   float: right;
 }
 
-* { 
-  -webkit-box-sizing: border-box; 
-  -moz-box-sizing:    border-box; 
-  box-sizing:         border-box; 
+@mixin border-radius($radius: 4px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
 }
 
 
@@ -62,6 +56,8 @@ $green:			  #6DA59C;
 $lightgreen: 	#9BBCB1;
 $white: 		  #fff;
 $black: 		  #000;
+
+$icons: "FontAwesome";
 
 // Clearfix
 .clearfix:before,
@@ -86,6 +82,7 @@ html, body {
   margin: 0px;
   padding: 0px;
 }
+
 body {
 	background: $blue;
 	color: $white;
@@ -93,7 +90,12 @@ body {
 	line-height: 1.2;
 }
 
-// Links
+* { 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing:    border-box; 
+  box-sizing:         border-box; 
+}
+
 a {
   color: $white;
   text-decoration: none;
@@ -163,11 +165,29 @@ h2 {
         display: block;
         @include border-radius();
         background: $lightgreen;
-        font-size: 35px;
         line-height: 1.85;
         text-align: center;
         vertical-align: middle;
         color: $white;
+
+        &.playing {
+          &:before {
+            font-family: $icons;
+            font-size: 35px;
+            color: $white;
+            content: "\f01d";
+          }
+        }
+
+        &.stopped {
+          &:before {
+            font-family: $icons;
+            font-size: 30px;
+            line-height: 2.1;
+            color: $white;
+            content: "\f04d";
+          }
+        }
 
         &:hover {
           background: $green;
@@ -205,6 +225,7 @@ select {
 }
 
 input[type="text"] {
+  width: 400px;
   background: none;
   border: none;
   color: $white;

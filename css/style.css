@@ -4630,11 +4630,6 @@ button.ui-button::-moz-focus-inner {
 .last {
   float: right; }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
 .clearfix:before, #container header #play-button:before,
 .clearfix:after,
 #container header #play-button:after {
@@ -4658,6 +4653,11 @@ body {
   color: #fff;
   font-size: 17px;
   line-height: 1.2; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 a {
   color: #fff;
@@ -4696,11 +4696,21 @@ h2 {
       -moz-border-radius: 4px;
       border-radius: 4px;
       background: #9BBCB1;
-      font-size: 35px;
       line-height: 1.85;
       text-align: center;
       vertical-align: middle;
       color: #fff; }
+      #container header #play-button a#play-icon.playing:before {
+        font-family: "FontAwesome";
+        font-size: 35px;
+        color: #fff;
+        content: "\f01d"; }
+      #container header #play-button a#play-icon.stopped:before {
+        font-family: "FontAwesome";
+        font-size: 30px;
+        line-height: 2.1;
+        color: #fff;
+        content: "\f04d"; }
       #container header #play-button a#play-icon:hover {
         background: #6DA59C;
         color: #2E4859; }
@@ -4722,6 +4732,7 @@ select {
     color: #000; }
 
 input[type="text"] {
+  width: 400px;
   background: none;
   border: none;
   color: #fff; }
