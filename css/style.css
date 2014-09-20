@@ -2668,6 +2668,13 @@ th {
   *zoom: 1;
 }
 
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   background: #2E4859;
   color: #fff;
@@ -2726,4 +2733,13 @@ a:hover {
 #container #play-button a#play-icon:active {
   background: #e6e6e6;
   color: #7ca899;
+}
+#container #map {
+  position: absolute;
+  top: 88px;
+  bottom: 0;
+  width: 100%;
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
 }

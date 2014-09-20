@@ -81,6 +81,13 @@ $black: 		#000;
 // Styles //
 
 // General Styles
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
 body {
 	background: $blue;
 	color: $white;
@@ -154,5 +161,15 @@ a {
         color: darken($lightgreen, 10%);
       }
     }
+  }
+
+  #map {
+    position: absolute;
+    top: 88px; 
+    bottom: 0; 
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0px;
   }
 }
