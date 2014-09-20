@@ -165,6 +165,7 @@ h2 {
         display: block;
         @include border-radius();
         background: $lightgreen;
+        font-family: $icons;
         line-height: 1.85;
         text-align: center;
         vertical-align: middle;
@@ -172,20 +173,19 @@ h2 {
 
         &.playing {
           &:before {
-            font-family: $icons;
-            font-size: 35px;
+            font-size: 30px;
+            line-height: 2.1;
             color: $white;
-            content: "\f01d";
+            content: "\f04d";
           }
         }
 
         &.stopped {
           &:before {
-            font-family: $icons;
-            font-size: 30px;
-            line-height: 2.1;
+            font-size: 35px;
+            
             color: $white;
-            content: "\f04d";
+            content: "\f01d";
           }
         }
 
@@ -225,7 +225,7 @@ select {
 }
 
 input[type="text"] {
-  width: 400px;
+  width: 600px;
   background: none;
   border: none;
   color: $white;
