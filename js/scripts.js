@@ -48,6 +48,10 @@ function init() {
         var enterCircles = circles.enter();
 
 
+        var transitionTime = 50;
+        if( speed == 1 ){
+            transitionTime = 500;
+        }
 
         enterCircles.append("circle")
             .attr('class', 'pollutioncircle')
@@ -62,7 +66,7 @@ function init() {
                     map.latLngToLayerPoint(d.LatLng).x +","+
                     map.latLngToLayerPoint(d.LatLng).y +")";
             })
-            .transition().duration(500).ease("linear")
+            .transition().duration(transitionTime).ease("linear")
             .attr("r", function(d){
                 if(d.value && !isNaN(d.value) ){
                     return 200*(d.value / maximums[d.pollutant]);
@@ -99,6 +103,7 @@ function init() {
     var interval;
     var allData;
     var maximums = {};
+    var speed = 1;
     onDateRangeUpdate();
 
     $('select').on('change', function(){
@@ -153,7 +158,6 @@ function init() {
                     }
                 });
             });
-            console.log(maximums);
         });
     }
 
@@ -161,20 +165,40 @@ function init() {
         clearInterval( interval );
         interval = null;
         $('#play-icon').addClass('stopped');
+        $('#play-icon').removeClass('playingfast');
         $('#play-icon').removeClass('playing');
     }
 
     function play(){
+        speed = 1;
+        clearInterval( interval );
         interval = setInterval(function(){
             currentSelectedDate = new Date(currentSelectedDate.setHours( currentSelectedDate.getHours()+1 ));
             update(allData[currentSelectedDate.toISOString()]);
+            $('#play-icon').removeClass('playingfast');
             $('#play-icon').removeClass('stopped');
             $('#play-icon').addClass('playing');
         }, 500 );
     }
 
+    function playfast(){
+        speed = 2;
+        clearInterval( interval );
+        interval = setInterval(function(){
+            currentSelectedDate = new Date(currentSelectedDate.setHours( currentSelectedDate.getHours()+1 ));
+            update(allData[currentSelectedDate.toISOString()]);
+            $('#play-icon').removeClass('stopped');
+            $('#play-icon').removeClass('playing');
+            $('#play-icon').addClass('playingfast');
+        }, 50 );
+    }
+
     $('#play-icon').on('click', function(){
-        if( interval ){
+        console.log(speed);
+        if( interval && speed == 1){
+            playfast();
+        }
+        else if( interval && speed == 2 ){
             stop();
         }
         else{
