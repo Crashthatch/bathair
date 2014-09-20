@@ -35,9 +35,13 @@ function init() {
     }
 
     function update(timeRow) {
-        var enterCircles = g.selectAll("circle")
+        var circles = g.selectAll("circle")
             .data(timeRow,function(d) { return d.id; })
-            .enter();
+
+        circles.exit().remove();
+        var enterCircles = circles.enter();
+
+
 
         enterCircles.append("circle")
             .attr('class', 'pollutioncircle')
@@ -54,7 +58,7 @@ function init() {
             })
             .transition().duration(500).ease("linear")
             .attr("r", function(d){
-                if(d.value ){
+                if(d.value && !isNaN(d.value) ){
                     return 200*(d.value / maximums[d.pollutant]);
                 }
                 else{
@@ -84,7 +88,7 @@ function init() {
                     return 'orange'
                 }
                 else if(d.pollutant == 'co'){
-                    return 'purple'
+                    return 'blue'
                 }
             });
 
