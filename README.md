@@ -1,4 +1,4 @@
-bathair
+BatHair
 =======
 
-Bath Air Visualization
+Bat Hair Visualization
