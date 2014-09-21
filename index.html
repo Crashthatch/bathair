@@ -1,7 +1,10 @@
 <!doctype html>
 	<head>
 		<meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <title>AirLapse: Bath</title>
 
     <link rel="shortcut icon" href="favicon.png" type="image/png" />
@@ -41,12 +44,12 @@
         </div>
 
         <!-- Date Controls -->
-        <div class="eightcol clearfix">
+        <div id="header-dates" class="clearfix">
           <div id="date-picker" class="clearfix">
             <!-- <h2>Choose your date range:</h2> -->
 
             <!-- Date From -->
-            <div id="date-from" class="first">
+            <div id="date-from">
               <label for="data-from-day">Start date:</label>
               <select id="data-from-day">
                 <option disabled>- Day -</option>
@@ -119,7 +122,7 @@
             </div>
 
             <!-- Date To -->
-            <div id="date-to" class="last">
+            <div id="date-to">
               <label for="data-to-day">Stop date:</label>
               <select id="data-to-day">
                 <option disabled>- Day -</option>
@@ -205,18 +208,8 @@
         </div>
 
         <!-- Timecode -->
-        <input type="text" id="time-range" class="twocol last" readonly>
+        <input type="text" id="time-range" class="last" readonly>
       </header>
-
-      <!-- <svg>
-        <defs>
-          <radialGradient id="low" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-            <stop offset="0%" style="stop-color: #9CFF9C; stop-opacity: 1" />
-            <stop offset="100%" style="stop-color: #9CFF9C; stop-opacity: 0;" />
-          </radialGradient>
-        </defs>
-        <ellipse cx="200" cy="50" rx="50" ry="50" fill="url(#low)" />
-      </svg> -->
 
       <!-- AirLapse Key -->
       <div id="airlapse-key">
@@ -236,7 +229,7 @@
 
       <!-- AirLapse Twitter -->
       <div id="airlapse-twitter">
-        <a href="http://twitter.com/AirLapseBath" target="_blank">
+        <a href="http://twitter.com/AirLapseBath" target="_blank" title="@AirLapseBath">
           <i class="fa fa-twitter-square"></i>
         </a>
       </div>

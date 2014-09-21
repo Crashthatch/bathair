@@ -4582,64 +4582,16 @@ button.ui-button::-moz-focus-inner {
   /* support: IE8 */
   border-radius: 5px; }
 
-.onecol {
-  width: 5.801104972%; }
-
-.twocol {
-  width: 14.364640883%; }
-
-.threecol {
-  width: 22.928176794%; }
-
-.fourcol {
-  width: 31.491712705%; }
-
-.fivecol {
-  width: 40.055248616%; }
-
-.sixcol {
-  width: 48.618784527%; }
-
-.sevencol {
-  width: 57.182320438000005%; }
-
-.eightcol {
-  width: 65.74585634900001%; }
-
-.ninecol {
-  width: 74.30939226%; }
-
-.tencol {
-  width: 82.87292817100001%; }
-
-.elevencol {
-  width: 91.436464082%; }
-
-.twelvecol {
-  width: 99.999999993%; }
-
-.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%; }
-
-.first {
-  float: left;
-  margin-left: 0; }
-
-.last {
-  float: right; }
-
-.clearfix:before, #container header #play-button:before,
+.clearfix:before, header #play-button:before,
 .clearfix:after,
-#container header #play-button:after {
+header #play-button:after {
   content: "";
   display: table; }
 
-.clearfix:after, #container header #play-button:after {
+.clearfix:after, header #play-button:after {
   clear: both; }
 
-.clearfix, #container header #play-button {
+.clearfix, header #play-button {
   *zoom: 1; }
 
 html, body {
@@ -4659,6 +4611,10 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 a {
   color: #fff;
   text-decoration: none; }
@@ -4668,26 +4624,26 @@ a {
 h2 {
   margin: 0 0 10px 0; }
 
-#container header {
+header {
   padding: 15px;
   position: relative; }
-  #container header #date-picker {
+  header #date-picker {
     margin-top: 15px; }
-    #container header #date-picker option {
+    header #date-picker option {
       pointer: cursor; }
-  #container header #airlapse-control {
+  header #airlapse-control {
     padding-top: 37px; }
-    #container header #airlapse-control #slider {
+    header #airlapse-control #slider {
       margin: 15px auto 0;
       max-width: 98%; }
-  #container header label {
+  header label {
     margin-right: 8px;
     color: #9BBCB1;
     cursor: pointer; }
-  #container header #play-button #logo {
+  header #play-button #logo {
     display: block;
     margin: 0 auto 15px; }
-  #container header #play-button a#play-icon {
+  header #play-button a#play-icon {
     height: 50%;
     display: block;
     -webkit-border-radius: 4px;
@@ -4700,23 +4656,23 @@ h2 {
     text-align: center;
     vertical-align: middle;
     color: #fff; }
-    #container header #play-button a#play-icon.playing:before {
+    header #play-button a#play-icon.playing:before {
       color: #fff;
       content: "\f04e"; }
-    #container header #play-button a#play-icon.playingfast:before {
+    header #play-button a#play-icon.playingfast:before {
       color: #fff;
       content: "\f04d"; }
-    #container header #play-button a#play-icon.stopped:before {
+    header #play-button a#play-icon.stopped:before {
       color: #fff;
       content: "\f04b"; }
-    #container header #play-button a#play-icon:hover {
+    header #play-button a#play-icon:hover {
       background: #6DA59C;
       color: #2E4859; }
-    #container header #play-button a#play-icon:active {
+    header #play-button a#play-icon:active {
       background: #4b7a73;
       color: #2E4859; }
-#container #airlapse-key {
-  position: absolute;
+
+#airlapse-key {
   z-index: 10;
   bottom: 10px;
   left: 10px;
@@ -4724,9 +4680,10 @@ h2 {
   -moz-border-radius: 4px;
   border-radius: 4px;
   background: #fff;
-  padding: 0 20px;
+  margin: 0 10px;
+  padding: 5px 20px;
   color: #000; }
-  #container #airlapse-key p span {
+  #airlapse-key p span {
     display: block;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -4736,16 +4693,17 @@ h2 {
     float: left;
     margin: 0 8px 0 0;
     opacity: 0.3; }
-  #container #airlapse-key p.nox span {
+  #airlapse-key p.nox span {
     background: black; }
-  #container #airlapse-key p.pm10 span {
+  #airlapse-key p.pm10 span {
     background: red; }
-  #container #airlapse-key p.o3 span {
+  #airlapse-key p.o3 span {
     background: orange; }
-  #container #airlapse-key p.co span {
+  #airlapse-key p.co span {
     background: blue; }
-#container #airlapse-twitter {
-  position: absolute;
+
+#airlapse-twitter {
+  position: fixed;
   z-index: 10;
   bottom: 10px;
   right: 10px;
@@ -4754,13 +4712,15 @@ h2 {
   border-radius: 4px;
   padding: 0 20px;
   font-size: 30px; }
-  #container #airlapse-twitter a {
+  #airlapse-twitter a {
     color: #6DA59C; }
-    #container #airlapse-twitter a:hover {
+    #airlapse-twitter a:hover {
       color: #000; }
-#container #map {
+
+#map {
   position: absolute;
-  top: 163px;
+  top: 645px;
+  min-height: 480px;
   bottom: 0;
   width: 100%;
   margin: 0px;
@@ -4779,10 +4739,97 @@ input[type="text"]#date-range {
   color: #fff; }
 
 input[type="text"]#time-range {
-  width: 200px;
+  width: 100%;
   background: none;
   border: none;
   margin-top: 28px;
   color: #fff;
   font-size: 65px;
   text-align: center; }
+
+@media only screen and (min-width: 768px) {
+  .onecol {
+    width: 5.801104972%; }
+
+  .twocol, input[type="text"]#time-range {
+    width: 14.364640883%; }
+
+  .threecol, input[type="text"]#time-range {
+    width: 22.928176794%; }
+
+  .fourcol {
+    width: 31.491712705%; }
+
+  .fivecol {
+    width: 40.055248616%; }
+
+  .sixcol {
+    width: 48.618784527%; }
+
+  .sevencol, #header-dates {
+    width: 57.182320438000005%; }
+
+  .eightcol {
+    width: 65.74585634900001%; }
+
+  .ninecol {
+    width: 74.30939226%; }
+
+  .tencol {
+    width: 82.87292817100001%; }
+
+  .elevencol {
+    width: 91.436464082%; }
+
+  .twelvecol {
+    width: 99.999999993%; }
+
+  .onecol, .twocol, input[type="text"]#time-range, .threecol, input[type="text"]#time-range, .fourcol, .fivecol, .sixcol, .sevencol, #header-dates, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+    position: relative;
+    float: left;
+    margin-left: 2.762430939%; }
+
+  .first {
+    float: left;
+    margin-left: 0; }
+
+  .last {
+    float: right; }
+
+  header #date-picker {
+    margin-top: 5px; }
+  header #airlapse-control {
+    padding-top: 12px; }
+
+  #map {
+    top: 147px; }
+
+  #airlapse-key {
+    position: fixed;
+    margin: 0 0 0 0; } }
+@media only screen and (min-width: 1024px) {
+  header #airlapse-control {
+    margin-top: 163pxpx; }
+
+  #map {
+    top: 159px; } }
+@media only screen and (min-width: 1325px) {
+  header #date-picker {
+    margin-top: 16px; }
+  header #airlapse-control {
+    margin-top: 24px; }
+
+  #date-from {
+    width: 48.618784527%;
+    float: left;
+    margin-left: 0; }
+
+  #date-to {
+    width: 48.618784527%;
+    float: right; }
+
+  #header-dates {
+    width: 65.74585634900001%; }
+
+  input[type="text"]#time-range {
+    width: 14.364640883%; } }
