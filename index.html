@@ -1,42 +1,24 @@
 <!doctype html>
 	<head>
 		<meta charset="utf-8">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <title>AirLapse: Bath</title>
+    <title>AirLapse: Bath</title>
 
-        <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
 
-    	<!-- jQuery 1.11.1 -->
-    	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        <!-- jQuery UI 1.11 -->
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-
-        <!-- Leaflet 0.7 -->
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css">
-        <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-
-    	<!-- D3 3.4.11 -->
-    	<script type="text/javascript" src="js/d3.js"></script>
-
-    	<!-- Custom Styles & Scripts -->
-    	<link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="js/scripts.js"></script>
-
-        <!-- Google Analytics -->
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-18121708-7', 'auto');
-            ga('send', 'pageview');
-        </script>
-
+      ga('create', 'UA-18121708-7', 'auto');
+      ga('send', 'pageview');
+    </script>
 	</head>
 
 	<body onLoad="javascript:init();">
@@ -249,5 +231,25 @@
       <!-- Leaflet Map -->
       <div id="map"></div>
     </div>
+
+    <footer>
+
+      <!-- jQuery 1.11.1 -->
+      <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+
+      <!-- jQuery UI 1.11 -->
+      <script type="text/javascript" src="js/jquery-ui.js"></script>
+
+      <!-- Leaflet 0.7 -->
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css">
+      <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+
+      <!-- D3 3.4.11 -->
+      <script type="text/javascript" src="js/d3.js"></script>
+
+      <!-- Custom Styles & Scripts -->
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript" src="js/scripts.js"></script>
+    </footer>
 	</body>
 </html>
