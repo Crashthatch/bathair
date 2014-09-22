@@ -30,6 +30,14 @@ function init() {
             default: return "th";
         }
     }
+    function padTwo(d){
+        if(d < 10){
+            return "0"+d;
+        }
+        else{
+            return ""+d;
+        }
+    }
 
     function getToFromDates(){
         var fromDate = $('#data-from-year option:selected').val() + "-"+$('#data-from-month option:selected').val()+"-"+$('#data-from-day option:selected').val();
@@ -97,14 +105,25 @@ function init() {
         $( "#slider" ).slider("value", Math.floor((currentSelectedDate-fromDate)/(1000*60*60*24)) );
     }
 
-    var fromDate = getToFromDates().from;
-    var toDate = getToFromDates().to;
+    var fromDate = new Date();
+    fromDate.setDate( fromDate.getDate() - 7 );
+    var toDate = new Date();
     var currentSelectedDate = new Date(fromDate);
     var interval;
     var allData;
     var maximums = {};
     var legalMaximums = {"o3": 100, "nox": 240, "co": 5, "pm10": 50};
     var speed = 1;
+
+    //Default to the most recent week (a month takes too long to get from Socrata).
+    $('#data-from-day').val( padTwo(fromDate.getDate()) );
+    $('#data-from-month').val( padTwo(fromDate.getMonth()+1) );
+    $('#data-from-year').val( fromDate.getFullYear() );
+
+    $('#data-to-day').val( padTwo(toDate.getDate()) );
+    $('#data-to-month').val( padTwo(toDate.getMonth()+1) );
+    $('#data-to-year').val( toDate.getFullYear() );
+
     onDateRangeUpdate();
 
     $('select').on('change', function(){
@@ -151,7 +170,7 @@ function init() {
                         id: reading.sensor_location_slug+pollutant,
                         LatLng: new L.LatLng(reading.sensor_location.latitude,
                             reading.sensor_location.longitude),
-                        value: parseFloat(reading[pollutant]),
+                        value: Math.max(0, parseFloat(reading[pollutant])),
                         pollutant: pollutant
                     });
                     if( !maximums[pollutant] || parseFloat(reading[pollutant]) > maximums[pollutant]){

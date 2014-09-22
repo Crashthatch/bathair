@@ -1,8 +1,6 @@
 <?php
-error_reporting( E_ALL );
-ini_set('display_errors', true);
-require 'vendor/autoload.php';
-
+//error_reporting( E_ALL );
+//ini_set('display_errors', true);
 
 $startDate = $_REQUEST['startDate'];
 $endDate = $_REQUEST['endDate'];
@@ -11,19 +9,19 @@ if( !$startDate || !$endDate ){
     die( "Need startDate and endDate in GET params");
 }
 
-/*
-$socrata = new \BathHacked\Socrata(
-    'http://data.bathhacked.org',
-    'nLdZb4jL6cHSikEGIATYbuUFP',
-    'fletcher.tom@gmail.com',
-    '5cFKhEmjI3r6'
-);
+$historicalDecoded = array();
+$liveDecoded = array();
 
-$response = $socrata->get('/resource/37nn-vnib.json?$where=datetime>\2013-12-01\'');//, ['$where' => 'datetime > \'2013-12-01\'']);
-*/
+if( strtotime( $startDate ) < strtotime('2014-06-31') ){
+    $historicalResult = file_get_contents('http://data.bathhacked.org/resource/37nn-vnib.json?$where=datetime%3E%27'.$startDate.'%27%20AND%20datetime<%27'.$endDate.'%27&$limit=10000&$offset=0');
+    $historicalDecoded = json_decode( $historicalResult, true );
+}
+if( strtotime( $endDate ) > strtotime ('2014-06-31') ){
+    $liveResult = file_get_contents('http://data.bathhacked.org/resource/hqr9-djir.json?$where=datetime%3E%27'.$startDate.'%27%20AND%20datetime<%27'.$endDate.'%27&$limit=10000&$offset=0');
+    $liveDecoded = json_decode( $liveResult, true );
+}
 
 header('Content-type: application/json');
-$result = file_get_contents('http://data.bathhacked.org/resource/37nn-vnib.json?$where=datetime%3E%27'.$startDate.'%27%20AND%20datetime<%27'.$endDate.'%27&$limit=10000&$offset=0');
-echo($result);
+echo json_encode(array_merge( $historicalDecoded, $liveDecoded ));
 
 ?>
