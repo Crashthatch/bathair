@@ -77,7 +77,7 @@ function init() {
             .transition().duration(transitionTime).ease("linear")
             .attr("r", function(d){
                 if(d.value && !isNaN(d.value) ){
-                    return 100*(d.value / legalMaximums[d.pollutant]);
+                    return 100*(Math.max(0,d.value) / legalMaximums[d.pollutant]);
                 }
                 else{
                     return 0;
@@ -153,6 +153,7 @@ function init() {
 
 
         $.getJSON('pulldata.php?startDate='+fromDate.toISOString()+'&endDate='+ toDate.toISOString(), function(response){
+            //console.log( JSON.stringify(response));
             //Create reponse of form:
             // {2001-01-01: {location: X, reading: 1.1},{location:Y, reading: 2.2},
             //  2001-01-02: {location: X, reading: 1.2}, {location:Y, reading: 2.3},
@@ -166,15 +167,17 @@ function init() {
                     allData[reading.datetime.toISOString()] = dateMap;
                 }
                 ['nox','co','pm10','o3'].forEach( function(pollutant){
-                    dateMap.push( {
-                        id: reading.sensor_location_slug+pollutant,
-                        LatLng: new L.LatLng(reading.sensor_location.latitude,
-                            reading.sensor_location.longitude),
-                        value: Math.max(0, parseFloat(reading[pollutant])),
-                        pollutant: pollutant
-                    });
-                    if( !maximums[pollutant] || parseFloat(reading[pollutant]) > maximums[pollutant]){
-                        maximums[pollutant] = parseFloat(reading[pollutant]);
+                    if( reading[pollutant] != undefined ){
+                        dateMap.push( {
+                            id: reading.sensor_location_slug+pollutant,
+                            LatLng: new L.LatLng(reading.sensor_location.latitude,
+                                reading.sensor_location.longitude),
+                            value: parseFloat(reading[pollutant]),
+                            pollutant: pollutant
+                        });
+                        if( !maximums[pollutant] || parseFloat(reading[pollutant]) > maximums[pollutant]){
+                            maximums[pollutant] = parseFloat(reading[pollutant]);
+                        }
                     }
                 });
             });
